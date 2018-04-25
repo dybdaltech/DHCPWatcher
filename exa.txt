@@ -1,0 +1,13 @@
+          <Lease>
+            <IPAddress>192.168.0.10</IPAddress>
+            <ScopeId>192.168.0.10</ScopeId>
+            <ClientId>MA:CA:DD:RR:ES</ClientId>
+            <AddressState>Active</AddressState>
+            <ClientType>Dhcp</ClientType>
+            <NapCapable>false</NapCapable>
+            <DnsRR>PTR</DnsRR>
+            <DnsRegistration>Complete</DnsRegistration>
+            <LeaseExpiryTime>2018-04-06</LeaseExpiryTime>
+            <NapStatus>FullAccess</NapStatus>
+            <HostName>Somecomputer.domain.local</HostName>
+          </Lease>
