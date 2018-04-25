@@ -116,4 +116,5 @@ client/xxpwa/yarn-error.log
 *.sln
 client/xxpwa/static/manifest.json
 
-.secrets.txt
+secrets.txt
+client/xxpwa/static/img/icons/safari-pinned-tab.svg
