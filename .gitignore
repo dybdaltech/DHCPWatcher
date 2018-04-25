@@ -107,7 +107,7 @@ client/xxpwa/node_modules/
 client/xxpwa/dist/
 client/xxpwa/npm-debug.log
 client/xxpwa/yarn-error.log
-
+client/*
 # Editor directories and files
 .idea
 *.suo
@@ -118,3 +118,4 @@ client/xxpwa/static/manifest.json
 
 secrets.txt
 client/xxpwa/static/img/icons/safari-pinned-tab.svg
+pyvenv.cfg
