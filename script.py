@@ -10,7 +10,7 @@ from pymongo import MongoClient
 
 #TODO: Find a better location string for the script, (./findleases.ps1)
 def Job():
-    """Starts Powershell script to fetch DHCP data from the server. """
+    """Starts Powershell script to fetch DHCP data from the server. (Export-DHCP..)"""
     while True:
         subprocess.Popen([""])
         print("Fetched DHCP scope 10.10.0.0")
@@ -52,14 +52,11 @@ def leaseParse(leaseFile):
     return leaseArray
 #Split
 def leaseSave(leaseFile):
-    """Parses the Lease.xml file from the Job function. Places the current date as the first object"""
+    """Basicly a copy paste from leaseParse, only saves it instead to a MongoDB instance."""
     leaseArray = []
     try:
         tree = ET.parse(leaseFile)
         root = tree.getroot()
-        leaseArray.append({
-            "Date": str(datetime.now().date())
-        })
         leases = root.findall('./IPv4/Scopes/Scope/Leases/')
         for lease in leases:
             name = lease.find('HostName')
@@ -90,6 +87,8 @@ def leaseSave(leaseFile):
 db_client = MongoClient('', 27017) #TODO: Create seperate configuration file
 db_instance = db_client.monitor
 db_lease = db_instance.leases
+
+#Print connection status for debugging, removing it later
 print("connecting to MongoDB")
 print("------------------")
 print(db_client)
@@ -97,7 +96,8 @@ print("------------------")
 print(db_instance)
 print("------------------")
 print(db_lease)
-#Multhithreading for the powershell file.
+
+#Creates a seperate thread for Powershell job.
 thread = Thread(target = Job)
 thread.start()
 
