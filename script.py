@@ -12,7 +12,7 @@ from pymongo import MongoClient
 def Job():
     """Starts Powershell script to fetch DHCP data from the server. (Export-DHCP..)"""
     while True:
-        subprocess.Popen([""])
+        subprocess.Popen([""]) #REDACTED file path & name
         print("Fetched DHCP scope 10.10.0.0")
         time.sleep(60)
 
@@ -50,7 +50,7 @@ def leaseParse(leaseFile):
         print("Loading DHCP scope.. Try again later")
         return "Loading DHCP scope.. Try again later"
     return leaseArray
-#Split
+#TODO: Has to be a better way to do this. I'm just lazy 
 def leaseSave(leaseFile):
     """Basicly a copy paste from leaseParse, only saves it instead to a MongoDB instance."""
     leaseArray = []
@@ -84,7 +84,7 @@ def leaseSave(leaseFile):
 
 
 #Database connections:
-db_client = MongoClient('', 27017) #TODO: Create seperate configuration file
+db_client = MongoClient('', 27017) #TODO: Create seperate configuration file & REDACTED ip.
 db_instance = db_client.monitor
 db_lease = db_instance.leases
 
